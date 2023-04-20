@@ -1,0 +1,9 @@
+*.pyc
+.idea/
+.vscode/
+venv/
+**migrations/
+db.sqlite3
+root/
+config.py
+media/
