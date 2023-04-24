@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extra_styles %}{% endblock extra_styles %}
+
+    <link rel="stylesheet" href="{% static 'index/mu_css/mu_css.css' %}">
+
+    <title>{% block page_title %}{% endblock %}</title>
+</head>
+
+<body>
+
+
+{% block page %}
+    {% block content %}
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+</body>
+</html>
