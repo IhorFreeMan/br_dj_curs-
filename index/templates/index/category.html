@@ -1,0 +1,17 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+        <h1>{{ category.title }}</h1>
+
+            {% if notes %}
+            <ul>
+                {% for note in notes %}
+                <li>{{ note.title }}, {{ note.text }}, {{ note.created }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No pages currently in category.</strong>
+            {% endif %}
+
+
+{% endblock %}

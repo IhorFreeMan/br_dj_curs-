@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page %}
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Post Content Column -->
+            <div class="col-md-2 d-none d-md-block bg-light sidebar">
+                {% block sidebar %}
+{#                    {% include 'west/sidebar.html' %}#}
+                {% endblock %}
+            </div>
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                {% block content %}  {% endblock %}
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <div style="padding: 15px;"></div>
+
+
+{% endblock page %}

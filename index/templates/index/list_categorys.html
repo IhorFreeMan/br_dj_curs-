@@ -1,0 +1,17 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+        <h1>Список категорій!</h1>
+
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <!-- Following line changed to add an HTML hyperlink -->
+                <li><a href="/category/{{ category.id }}">{{ category.title }}</a></li>
+                {% endfor %}
+            </ul>
+       {% else %}
+            <strong>There are no categories present.</strong>
+       {% endif %}
+
+{% endblock %}
