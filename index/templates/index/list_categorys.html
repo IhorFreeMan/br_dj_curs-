@@ -1,6 +1,6 @@
-{% extends 'index_base.html' %}
+{% extends 'index/index_base.html' %}
 
-{% block content %}
+{% block sidebar %}
         <h1>Список категорій!</h1>
 
         {% if categories %}
@@ -13,5 +13,7 @@
        {% else %}
             <strong>There are no categories present.</strong>
        {% endif %}
+
+    <h6><a href="{% url 'index:add_note' %}">додати нагадування</a></h6>
 
 {% endblock %}

@@ -18,6 +18,10 @@
 
 <body>
 
+{% block head %}
+    {% block menu %}{% include 'navbar.html' %}{% endblock %}
+{% endblock %}
+
 
 {% block page %}
     {% block content %}
@@ -26,6 +30,14 @@
 
 {% block footer %}
 {% endblock %}
+
+
+
+{% block extra_scripts %}
+<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock extra_scripts %}
 
 </body>
 </html>
