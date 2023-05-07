@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from index.models import Category, Notes
 from index.forms import NotesForm
 from django.contrib.auth.decorators import login_required
+import config
+import requests as req
 
 
 def index(request):
@@ -21,17 +23,34 @@ def category(request, category_id):
     context_dict = {}
 
     try:
-
         category = Category.objects.get(id=category_id)
         notes = Notes.objects.filter(category=category)
         context_dict['notes'] = notes
         context_dict['category'] = category
 
-
     except Category.DoesNotExist:
         pass
 
     return render(request, 'index/category.html', context_dict)
+
+
+def send_telegram_message(token, chat_id, text):
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = {"chat_id": chat_id, "text": text}
+    response = req.post(url, data=data)
+    if response.status_code != 200:
+        print("Помилка при відправці повідомлення на Telegram")
+
+
+def send_telegram(request, id):
+    try:
+        notes = Notes.objects.get(id=id)
+        text = f"Назва нотатки: {notes.title}, \n{notes.text}"
+        send_telegram_message(token=config.token_telegram, chat_id=config.chat_id, text=text)
+
+    except Notes.DoesNotExist:
+        pass
+    return render(request, 'index/send.html')
 
 
 @login_required

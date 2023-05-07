@@ -11,4 +11,5 @@ urlpatterns = [
     path('add-note/', views.add_note, name='add_note'),
     path('edit-note/<int:id>/', views.edit_note, name='edit_note'),
     path('del-note/<int:id>/delete', views.delete_notes, name='delete_notes'),
+    path('send-note-telegram/<int:id>/', views.send_telegram, name='send_note_telegram'),
 ]
