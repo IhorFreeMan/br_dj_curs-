@@ -41,7 +41,7 @@ def send_telegram_message(token, chat_id, text):
     if response.status_code != 200:
         print("Помилка при відправці повідомлення на Telegram")
 
-
+@login_required
 def send_telegram(request, id):
     try:
         notes = Notes.objects.get(id=id)
