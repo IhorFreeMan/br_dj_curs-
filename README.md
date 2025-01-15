@@ -1,1 +1,1 @@
-Проходження курсів по python в Beetroot Academy
+Проходження курсів по python WEB в Beetroot Academy
